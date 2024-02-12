@@ -223,7 +223,7 @@ function getMachineBySkill () {
   for machine in $machines; do 
     # Reemplaza las comas por saltos de línea
     machine=$(echo $machine | sed 's/,/\n/g')
-    machineSkills=$(echo $machine | grep "skills:" | awk '{print $2}')
+    machineSkills=$(echo $machine | grep "skills:" | awk '{print $2}' FS=": ")
 
     if [ $(echo $machineSkills | grep -i "$skill") ]; then
       # Obtiene el nombre de la maquina encontrada
